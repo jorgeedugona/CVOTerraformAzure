@@ -17,7 +17,7 @@ Terraform             |  Cloud Volumes ONTAP
 
 ### Here are the elements that are going to be deployed to deploy Cloud Connector using the main.tf script:  <br />
 
-1. IAM Policy and Custom IAM role. <br />
+1. Customer Role that is assigned to the Cloud Connector. <br />
 2. Security Group to allow ports SSH (22), HTTPS (443) and HTTP (80).  <br />
 
 | Port  | Protocol | Purpose |
@@ -26,15 +26,15 @@ Terraform             |  Cloud Volumes ONTAP
 |  80   | HTTP  | Provides HTTP access from client web browsers to the local user interface |
 |  443  | HTTPs | Provides HTTPS access from client web browsers to the local user interface |
 
-3. SSH Key Pair (to access Cloud Manager).  <br />
-4. Cloud Manager VM.  <br />
+3. Cloud Manager VM.  <br />
 
 ## Prerequisites to deploy Cloud Volumes ONTAP:
 * [Install Azure CLI on Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=dnf) <br />
 * [Install Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) <br />
 * [Deploy Cloud Connector](https://github.com/jorgeedugona/CVOTerraForm/wiki/1.-Deploying-Cloud-Connector-using-Terraform) <br />
-* [Create 3 VPCs/Subnets for CVO HA or 1 VPC/Subnet for CVO Single Node](https://docs.netapp.com/us-en/occm/reference_networking_aws.html#example-ha-configuration) <br />
-* [ONLY for CVO HA - Create a Transit Gateway across 3 AZs](https://docs.netapp.com/us-en/occm/task_setting_up_transit_gateway.html) <br />
+* Private Subnet with Security group rules for Cloud Volumes ONTAP:
+  * [Inbound rules for single node systems](https://docs.netapp.com/us-en/occm/reference_networking_azure.html#inbound-rules-for-single-node-systems) <br />
+  * [Inbound rules for HA systems](https://docs.netapp.com/us-en/occm/reference_networking_azure.html#inbound-rules-for-ha-systems) <br />
 
 ### Here are the resources that are going to be deployed using the main.tf script for CVO:  <br />
 
