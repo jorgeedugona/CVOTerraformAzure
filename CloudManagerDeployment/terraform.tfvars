@@ -1,1 +1,11 @@
-
+token           = ""
+location        = "UK South"
+subscription_id = ""
+company         = ""
+resource_group  = ""
+subnet_name     = ""
+account_id      = ""
+vnet_name       = ""
+admin_password  = ""
+admin_username  = ""
+publicIP        = true
