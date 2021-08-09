@@ -35,14 +35,16 @@ output "current_subscription_display_id" {
 
 
 resource "netapp-cloudmanager_cvo_azure" "cvo-azure" {
-  provider             = netapp-cloudmanager
-  name                 = var.ha ? "TerraformCVOHighAvailable" : "TerraformCVOSingleNode"
-  location             = var.location
-  subscription_id      = var.subscription_id
-  subnet_id            = var.private_subnet_name
-  vnet_id              = var.vnet_name
-  vnet_resource_group  = var.resource_group
-  data_encryption_type = "AZURE"
+  provider                    = netapp-cloudmanager
+  name                        = var.ha ? "TerraformCVOHighAvailable" : "TerraformCVOSingleNode"
+  location                    = var.location
+  subscription_id             = var.subscription_id
+  subnet_id                   = var.private_subnet_name
+  vnet_id                     = var.vnet_name
+  vnet_resource_group         = var.vnet_resource_group
+  resource_group              = var.resource_group
+  allow_deploy_in_existing_rg = var.allow_deploy_in_existing_rg
+  data_encryption_type        = "AZURE"
   azure_tag {
     tag_key   = "CVO-Azure"
     tag_value = "Terraform"
