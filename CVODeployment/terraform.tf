@@ -26,6 +26,10 @@ variable "ha" {
   type = bool
 }
 
+variable "allow_deploy_in_existing_rg" {
+  type = bool
+}
+
 variable "subscription_id" {
   type = string
 }
@@ -39,6 +43,10 @@ variable "vnet_name" {
 }
 
 variable "resource_group" {
+  type = string
+}
+
+variable "vnet_resource_group" {
   type = string
 }
 
